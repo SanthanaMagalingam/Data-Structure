@@ -1,0 +1,39 @@
+import java.util.*;
+class Stack_Desc
+{
+	public static void main(String[] args) 
+	{
+		Scanner obj = new Scanner(System.in);
+		int t = obj.nextInt();
+		while(t-->0)
+		{
+		    int n = obj.nextInt();
+		    int a = 0,b=0;
+		    Stack <Integer> stack = new Stack<Integer>();
+		    for(int i=0;i<n;i++)
+		    {
+		        a = obj.nextInt();
+		        stack.push(a);
+		    }
+		    Stack <Integer> temp = new Stack<Integer>();
+		    Stack_Desc.sort(stack,temp,a);
+		}
+	}
+		public static void sort(Stack<Integer> stack,Stack<Integer> temp,int a)
+		{
+		    if(!stack.isEmpty())
+            {
+                a = stack.pop();
+                while(!temp.isEmpty() && temp.peek()< a) 
+                {                                         
+                    stack.push(temp.pop());
+                }
+                temp.push(a);
+                sort(stack,temp,a);
+            }
+            else
+            {
+                System.out.println(temp);
+            }
+		}
+}
